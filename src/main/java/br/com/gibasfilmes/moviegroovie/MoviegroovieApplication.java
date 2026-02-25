@@ -37,7 +37,24 @@ public class MoviegroovieApplication implements CommandLineRunner {
         DataCast dataCast = converterDados.getDatas(json, DataCast.class);
         System.out.println(dataCast);
 
+        System.out.println("-----------------------------------------");
 
-        
+        json = consumeApi.obterDados("http://www.omdbapi.com/?apikey=dcf40bd9&t=Love+exposure");
+        System.out.println(json);
+
+        DataSeries dataMovie2 = converterDados.getDatas(json, DataSeries.class);
+        System.out.println(dataMovie2);
+
+        DataPlot dataPlot1 = converterDados.getDatas(json, DataPlot.class);
+        System.out.println(dataPlot1);
+
+        DataCast dataCast1 = converterDados.getDatas(json, DataCast.class);
+        System.out.println(dataCast1);
+
+        DataAwards dataAwards1 = converterDados.getDatas(json, DataAwards.class);
+        System.out.println(dataAwards1);
+
+
+
     }
 }
