@@ -1,5 +1,6 @@
 package br.com.gibasfilmes.moviegroovie;
 
+import br.com.gibasfilmes.moviegroovie.main.Main;
 import br.com.gibasfilmes.moviegroovie.model.DataAwards;
 import br.com.gibasfilmes.moviegroovie.model.DataCast;
 import br.com.gibasfilmes.moviegroovie.model.DataPlot;
@@ -19,40 +20,8 @@ public class MoviegroovieApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var consumeApi = new ConsumeApi();
-        var json = consumeApi.obterDados("http://www.omdbapi.com/?apikey=dcf40bd9&t=American+Psycho");
-        System.out.println(json);
-
-        ConvertData converterDados = new ConvertData();
-        DataSeries dados = converterDados.getDatas(json, DataSeries.class);
-        System.out.println(dados);
-        json = consumeApi.obterDados("http://www.omdbapi.com/?apikey=dcf40bd9&t=American+Psycho&plot=full");
-        DataPlot dataPlot = converterDados.getDatas(json, DataPlot.class);
-        System.out.println(dataPlot);
-
-
-        DataAwards dataAwards = converterDados.getDatas(json, DataAwards.class);
-        System.out.println(dataAwards);
-
-        DataCast dataCast = converterDados.getDatas(json, DataCast.class);
-        System.out.println(dataCast);
-
-        System.out.println("-----------------------------------------");
-
-        json = consumeApi.obterDados("http://www.omdbapi.com/?apikey=dcf40bd9&t=Love+exposure");
-        System.out.println(json);
-
-        DataSeries dataMovie2 = converterDados.getDatas(json, DataSeries.class);
-        System.out.println(dataMovie2);
-
-        DataPlot dataPlot1 = converterDados.getDatas(json, DataPlot.class);
-        System.out.println(dataPlot1);
-
-        DataCast dataCast1 = converterDados.getDatas(json, DataCast.class);
-        System.out.println(dataCast1);
-
-        DataAwards dataAwards1 = converterDados.getDatas(json, DataAwards.class);
-        System.out.println(dataAwards1);
+        Main main = new Main();
+        main.showMenu();
 
 
 
